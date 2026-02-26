@@ -1,11 +1,10 @@
 import FadeIn from '../FadeIn'
 
-export default function FlutterApiGuide({ onOpenPdf }) { // <-- Added onOpenPdf prop
+export default function FlutterApiGuide() {
   return (
     <FadeIn>
       <div className="flex flex-col lg:flex-row items-stretch bg-white/60 dark:bg-[#24242c]/90 backdrop-blur-xl border border-white/50 dark:border-white/10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden transition-colors duration-500 group">
         
-        {/* Content Side (60%) */}
         <div className="w-full lg:w-3/5 p-6 md:p-12 flex flex-col items-start justify-center relative z-10">
           <div className="flex items-center gap-3 mb-4 md:mb-6">
              <span className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
@@ -31,22 +30,21 @@ export default function FlutterApiGuide({ onOpenPdf }) { // <-- Added onOpenPdf 
             <span className="px-3 py-1.5 bg-white dark:bg-white/10 text-[#1d1d1f] dark:text-white rounded-full text-xs font-semibold tracking-wide border border-gray-200 dark:border-white/5 shadow-sm">Dartz (Either)</span>
           </div>
 
-          {/* Changed from <a> tag to a <button> that triggers the modal */}
-          <button 
-            onClick={onOpenPdf}
+          <a 
+            href="/docs/flutter_api_guide.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#1d1d1f] dark:bg-white text-white dark:text-[#1d1d1f] px-6 py-3 rounded-full font-semibold text-sm hover:scale-105 transition-transform duration-300 shadow-md"
           >
             Read Publication
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
-          </button>
+          </a>
         </div>
 
-        {/* --- VISUAL SIDE (PDF Cover Image) --- */}
         <div className="w-full lg:w-2/5 bg-gradient-to-br from-gray-50 to-gray-200/50 dark:from-[#2a2a35] dark:to-[#1e1e26] p-8 md:p-12 flex justify-center items-center relative transition-colors duration-500 min-h-[400px]">
-          {/* Replaced hover:scale-110 with hover:-translate-y-3 to match your other apps */}
-          <div className="relative w-56 md:w-64 aspect-[1/1.41] transform transition-all duration-500 ease-out z-10 group-hover:-translate-y-3 shadow-[0_20px_60px_rgba(0,0,0,0.1)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border border-gray-200 dark:border-white/10">
+          <div className="relative w-64 sm:w-72 md:w-80 lg:w-72 xl:w-80 aspect-[1/1.41] transform transition-all duration-500 ease-out z-10 group-hover:-translate-y-3 shadow-[0_20px_60px_rgba(0,0,0,0.1)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border border-gray-200 dark:border-white/10">
             <img 
               src="/icons/flutter_api_doc_cover_page.png" 
               alt="Flutter API Integration Guide Cover" 

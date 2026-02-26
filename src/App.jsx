@@ -10,11 +10,9 @@ import ContactFooter from './components/contact/ContactFooter'
 import ContactModal from './components/contact/ContactModal'
 import ImageSlider from './components/ImageSlider'
 import FlutterApiGuide from './components/publications/FlutterApiGuide'
-import PdfModal from './components/publications/PdfModal'
 
 export default function App() {
   const [activeProject, setActiveProject] = useState(null)
-  const [activePdf, setActivePdf] = useState(null)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
 
   const ajeerScreenshots = [
@@ -43,10 +41,6 @@ export default function App() {
 
       {isContactModalOpen && (
         <ContactModal onClose={() => setIsContactModalOpen(false)} />
-      )}
-
-      {activePdf && (
-        <PdfModal pdfUrl={activePdf} onClose={() => setActivePdf(null)} />
       )}
 
       <div className="absolute top-[-15%] left-[-10%] w-[50%] h-[50%] bg-blue-200/50 dark:bg-white/10 rounded-full filter blur-[100px] md:blur-[120px] pointer-events-none z-0"></div>
@@ -80,7 +74,7 @@ export default function App() {
         </FadeIn>
 
         <div className="space-y-16">
-          <FlutterApiGuide onOpenPdf={() => setActivePdf('/docs/flutter_api_guide.pdf')} />
+          <FlutterApiGuide />
         </div>
       </section>
 
